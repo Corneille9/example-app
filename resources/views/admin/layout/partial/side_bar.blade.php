@@ -64,8 +64,8 @@
                 </li>
 
                 <!-- Menu item 5 -->
-                <li class="nav-item"><a class="nav-link" href="admin-review.html"><i
-                            class="far fa-comment-dots fa-fw me-2"></i>Reviews</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route("dynamic-form")}}"><i
+                            class="far fa-comment-dots fa-fw me-2"></i>Dynamic Form</a></li>
 
                 <!-- Menu item 6 -->
                 <li class="nav-item"><a class="nav-link" href="admin-earning.html"><i
@@ -116,7 +116,7 @@
                        title="Home">
                         <i class="bi bi-globe"></i>
                     </a>
-                    <a class="h5 mb-0 text-body" href="sign-in.html" data-bs-toggle="tooltip"
+                    <a class="h5 mb-0 text-body" href="{{route("logout")}}" data-bs-toggle="tooltip"
                        data-bs-placement="top" title="Sign out">
                         <i class="bi bi-power"></i>
                     </a>

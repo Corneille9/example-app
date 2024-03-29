@@ -1,4 +1,4 @@
-@extends("auth.layout.app")
+@extends("user.auth.layout.app")
 
 @section("title", "Register")
 

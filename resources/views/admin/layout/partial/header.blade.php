@@ -210,7 +210,7 @@
                                     Settings</a></li>
                             <li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a>
                             </li>
-                            <li><a class="dropdown-item bg-danger-soft-hover" href="#"><i
+                            <li><a class="dropdown-item bg-danger-soft-hover" href="{{route("logout")}}"><i
                                         class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
                             <li>
                                 <hr class="dropdown-divider">

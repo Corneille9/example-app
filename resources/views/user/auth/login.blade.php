@@ -1,4 +1,4 @@
-@extends("auth.layout.app")
+@extends("user.auth.layout.app")
 
 @section("title", "Login")
 
@@ -10,31 +10,42 @@
     <div class="col-12 col-lg-6 m-auto">
         <div class="row my-5">
             <div class="col-sm-10 col-xl-8 m-auto">
+
+                @include("common.alert")
+
                 <!-- Title -->
                 <span class="mb-0 fs-1">👋</span>
                 <h1 class="fs-2">Login into Eduport!</h1>
                 <p class="lead mb-4">Nice to see you! Please log in with your account.</p>
 
                 <!-- Form START -->
-                <form>
+                <form  action="{{route("login.authenticate")}}" method="POST">
+                    @csrf
                     <!-- Email -->
                     <div class="mb-4">
                         <label for="exampleInputEmail1" class="form-label">Email address *</label>
                         <div class="input-group input-group-lg">
                             <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="bi bi-envelope-fill"></i></span>
-                            <input type="email" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1">
+                            <input type="email" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1" name="email">
                         </div>
+                        @error('email')
+                            <div class="form-text text-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <!-- Password -->
                     <div class="mb-4">
                         <label for="inputPassword5" class="form-label">Password *</label>
                         <div class="input-group input-group-lg">
                             <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-lock"></i></span>
-                            <input type="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="password" id="inputPassword5">
+                            <input type="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="password" id="inputPassword5" name="password">
                         </div>
-                        <div id="passwordHelpBlock" class="form-text">
-                            Your password must be 8 characters at least
+                        @error('password')
+                        <div class="form-text text-danger">
+                            {{ $message }}
                         </div>
+                        @enderror
                     </div>
                     <!-- Check box -->
                     <div class="mb-4 d-flex justify-content-between mb-4">
@@ -43,7 +54,7 @@
                             <label class="form-check-label" for="exampleCheck1">Remember me</label>
                         </div>
                         <div class="text-primary-hover">
-                            <a href="forgot-password.html" class="text-secondary">
+                            <a href="{{route("forgot.password")}}" class="text-secondary">
                                 <u>Forgot password?</u>
                             </a>
                         </div>
@@ -51,7 +62,7 @@
                     <!-- Button -->
                     <div class="align-items-center mt-0">
                         <div class="d-grid">
-                            <button class="btn btn-primary mb-0" type="button">Login</button>
+                            <button class="btn btn-primary mb-0" type="submit">Login</button>
                         </div>
                     </div>
                 </form>
