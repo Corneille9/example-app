@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('blog_comments', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('blog_id');
+            $table->foreignId('author_id')->nullable();
+            $table->string('author_name')->nullable();
+            $table->string('author_email')->nullable();
+            $table->text('content');
             $table->timestamps();
         });
     }

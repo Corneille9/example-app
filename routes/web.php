@@ -48,6 +48,7 @@ Route::group(['middleware' => 'auth'],function (){
         })->name("admin.login");
 
         Route::get("dashboard/", [\App\Http\Controllers\DashboardController::class, "index"])->name("dashboard");
+        Route::post("dynamic-form/", [\App\Http\Controllers\DashboardController::class, "dynamicForm"])->name("dynamic-form");
         Route::get("dynamic-form/", function () {
             return view("admin.dynamic-from");
         })->name("dynamic-form");

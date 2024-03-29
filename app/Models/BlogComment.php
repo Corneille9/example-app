@@ -12,10 +12,10 @@ class BlogComment extends Model
 
     protected $fillable = [
         'blog_id',
-        'user_id',
-        'name',
-        'email',
-        'comment'
+        'author_id',
+        'author_name',
+        'author_email',
+        'content'
     ];
 
     public function blog(): BelongsTo
@@ -23,8 +23,8 @@ class BlogComment extends Model
         return $this->belongsTo(Blog::class, 'blog_id');
     }
 
-    public function user(): BelongsTo
+    public function author(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'author_id');
     }
 }
